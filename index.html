@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tailwind website</title>
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+
+  <!-- Tailwind css -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Iconify icon -->
+  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+
+  <style>
+    * {
+      font-family: sans-serif;
+    }
+
+    nav ul li {
+      padding: 5px 20px;
+    }
+
+    nav ul li a:hover {
+      color: grey;
+    }
+
+    .section1 {
+      background-image: url(Untitled\ design\ \(24\).png);
+      height: 600px;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .part1 {
+      background-image: url(captivating-image-or-video-background-featuring-people-engaging-in-wellness-activities.jpeg);
+    }
+
+    .details {
+      background-color: rgba(30, 27, 75, 0.656);
+    }
+
+    .mainbody img {
+      box-shadow: 0px 0px 10px rgb(17, 80, 119);
+    }
+
+    .popup-body {
+      background-color: rgba(0, 0, 0, 0.579);
+    }
+
+    .articletext {
+      background-color: rgba(0, 0, 0, 0.407);
+      padding: 10px 0px;
+      left: 0;
+      bottom: 0;
+    }
+
+    .dateandtime {
+      background-color: rgba(0, 0, 0, 0.407);
+      top: 0;
+      padding: 2px 10px;
+    }
+
+    .imgpart,
+    .imgpart1 {
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .imgpart:hover {
+      opacity: 0.8;
+    }
+
+    .symbol {
+      top: 35%;
+      left: 35%;
+      /* opacity: 0; */
+      transition: all 0.4s ease-in-out;
+    }
+
+    .card {
+      margin-bottom: 10px;
+    }
+
+    .schcard {
+      margin-bottom: 30px;
+      /* margin-right: 20px; */
+    }
+
+    .procard,
+    .schcard,
+    .btn,
+    .details_forum {
+      box-shadow: 0px 0px 5px rgb(116, 116, 116);
+    }
+
+    .procard {
+      margin-bottom: 40px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .box-shadow {
+      box-shadow: 0px 0px 10px rgb(255, 119, 0);
+    }
+
+    .icon {
+      margin: 5px 15px;
+    }
+
+    .proimg {
+      box-shadow: 0px 0px 5px white;
+    }
+
+    .hamburger{
+      transition: all 0.6s ease-in-out;
+    }
+    .rotatingham{
+      rotate: 180deg;
+    }
+
+    @media (max-width:865px) {
+      .procard {
+        width: 100% !important;
+      }
+    }
+
+    @media (max-width:800px) {
+      .schcard {
+        width: 100% !important;
+        margin-left: 20px !important;
+        margin-right: 20px !important;
+      }
+    }
+
+    @media (max-width:365px) {
+      .procard {
+        height: fit-content !important;
+      }
+
+      .procard .btns {
+        flex-direction: column !important;
+      }
+
+      .procard .btns .btn {
+        width: 100%;
+      }
+    }
+
+    /* 
+    .card:hover .symbol {
+      opacity: 1;
+    } */
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Popup -->
+  <div class="popup-body size-full flex items-center justify-center fixed hidden z-50">
+    <div
+      class="part1 w-50 max-[710px]:w-10/12 text-center flex items-center justify-center flex-col w-fit rounded-3xl p-3 fixed">
+      <div class="absolute top-5 right-5 scale-125 hover:text-gray-800" onclick="popclose()"><iconify-icon
+          icon="icomoon-free:cross"></iconify-icon></div>
+      <div class="title font-black text-3xl underline underline-offset-1 p-2">ZenLife Wellness Hub</div>
+      <div class="slogan text-xl p-2">Welcome to ZenLife Wellness Hub, your destination for holistic well-being</div>
+      <div class="image p-5"><img
+          src="captivating-image-or-video-background-featuring-people-engaging-in-wellness-activities.jpeg" alt=""
+          class="rounded size-52"></div>
+      <div class="btn bg-emerald-700 hover:bg-emerald-800 cursor-pointer text-white p-2 pl-3 pr-3 rounded">Join Us
+        Now!</div>
+    </div>
+  </div>
+
+  <header>
+    <nav class=" bg-slate-900">
+      <div class="try flex items-center  text-white p-1 max-[600px]:justify-between max-[600px]:items-top">
+        <div class="hamburger min-[600px]:hidden text-4xl ml-3" onclick="showelements()"><iconify-icon
+            icon="solar:hamburger-menu-line-duotone"></iconify-icon></div>
+
+        <div class="logo p-2 ">
+          <img src="favicon.png" alt="" id="logo" class="w-12">
+        </div>
+        <div class="elements min-[600px]:w-full flex items-center justify-between">
+          <ul class="flex max-[600px]:hidden">
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Blog</a></li>
+            <li><a href="#community">Community</a></li>
+          </ul>
+          <ul>
+            <li class="overflow-hidden cursor-pointer " onclick="showpositioning()">
+              <img src="p3.jpg" alt="" id="profile" class="imgprofile size-10 object-cover rounded-full">
+            </li>
+            <div class="positioning fixed bg-white text-black top-16 right-5 rounded-2xl p-2 hidden">
+              <li><a href="">Your Profile</a></li>
+              <li><a href="">Settings</a></li>
+              <li><a href="">Sign out</a></li>
+            </div>
+          </ul>
+        </div>
+      </div>
+      <ul class="hamelelement pb-2 hidden">
+        <li><a href="" class="p-3 text-white pl-2 hover:text-gray-600">Home</a></li>
+        <li><a href="" class="p-3 text-white pl-2 hover:text-gray-600">About</a></li>
+        <li><a href="" class="p-3 text-white pl-2 hover:text-gray-600">Blog</a></li>
+        <li><a href="#community" class="p-3 text-white pl-2 hover:text-gray-600">Community</a></li>
+      </ul>
+
+    </nav>
+  </header>
+
+  <section class="section1">
+    <div class="mainbody flex items-center justify-center size-full">
+      <div
+        class="details text-center text-emerald-100 md:w-10/12 w-full p-6 rounded flex items-center justify-center w-fit">
+        <img src="captivating-image-or-video-background-featuring-people-engaging-in-wellness-activities.jpeg" alt=""
+          class="shadow size-56 rounded-full mr-6 md:block hidden">
+        <div class="part">
+          <div class="nameoforg text-emerald-200 text-2xl font-bold pb-2">ZenLife Wellness Hub!</div>
+          <div class="slogoforg underline underline-offset-2 pb-2">Elevate Your Wellness, Elevate Your Life</div>
+          <div class="more text-justify p-2">Welcome to ZenLife Wellness Hub
+            At ZenLife Wellness Hub, we believe in the power of serenity and the transformative effects of embracing
+            wellness in every aspect of life. Our hub is a sanctuary for individuals seeking to prioritize their
+            well-being and unlock their true potentials. Experience moments of tranquility and inner peace as you
+            embark on your wellness journey with us.</div>
+          <div class="btns flex justify-between p-2 min-[344px]:flex-row flex-col">
+            <div class="button p-2 bg-indigo-900 rounded hover:bg-indigo-950 cursor-pointer mb-4">Join Our Community!
+            </div>
+            <div class="button p-2 bg-indigo-900 rounded hover:bg-indigo-950 cursor-pointer mb-4">Learn More!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section2 m-5 ml-0 w-full">
+    <div class="articles">
+      <div class="title flex items-center text-xl text-left ml-10 mb-2 font-bold underline underline-offset-1">
+        <iconify-icon icon="lets-icons:pointers-fill"></iconify-icon>Featured Articles
+      </div>
+      <div class="cards flex flex-wrap items-center justify-around p-5 pt-3">
+        <div class="card">
+          <div class="imgpart relative text-white w-fit">
+            <img src="5-yoga-poses-for-stress-relief.jpeg" alt="" class="w-80 rounded-2xl">
+            <div class="articletext flex items-top absolute  w-full rounded-2xl"><iconify-icon
+                icon="material-symbols:stylus-laser-pointer" class="mr-2 mt-1 ml-1"></iconify-icon>
+              <div class="elementofarticle">Discover Mindful Movement: 5 Yoga Poses for Stress Relief.</div>
+            </div>
+            <div class="dateandtime flex items-center text-lg absolute  rounded-2xl">
+              <iconify-icon icon="mdi:eye" class="mr-1 ml-2"></iconify-icon>
+              <div class="totalviews mr-1 text-sm">903</div> |
+              <iconify-icon icon="mage:message-round" class="mr-1 ml-2"></iconify-icon>
+              <div class="totalcomment mr-1 text-sm">6</div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="imgpart relative text-white w-fit">
+            <img src="the-power-of-gratitude-cultivating-joy-in-everyday-life.jpeg" alt="" class="w-80 rounded-2xl">
+            <div class="articletext flex items-top absolute  w-full rounded-2xl"><iconify-icon
+                icon="material-symbols:stylus-laser-pointer" class="mr-2 mt-1 ml-1"></iconify-icon>
+              <div class="elementofarticle">The Power of Gratitude: Cultivating Joy in Everyday Life.</div>
+            </div>
+            <div class="dateandtime flex items-center text-lg absolute rounded-2xl">
+              <iconify-icon icon="mdi:eye" class="mr-1 ml-2"></iconify-icon>
+              <div class="totalviews mr-2 text-sm">1208</div> |
+              <iconify-icon icon="mage:message-round" class="mr-1 ml-2"></iconify-icon>
+              <div class="totalcomment mr-1 text-sm">10</div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="imgpart relative text-white w-fit">
+            <img src="nourish-your-body-simple-and-delicious-plant-based-recipes.jpeg" alt="" class="w-80	rounded-2xl">
+            <div class="articletext flex items-top absolute  w-full rounded-2xl"><iconify-icon
+                icon="material-symbols:stylus-laser-pointer" class="mr-2 mt-1 ml-1"></iconify-icon>
+              <div class="elementofarticle">Nourish Your Body: Simple and Delicious Plant-Based Recipes.</div>
+            </div>
+            <div class="dateandtime flex items-center text-lg absolute  rounded-2xl">
+              <iconify-icon icon="mdi:eye" class="mr-1 ml-2"></iconify-icon>
+              <div class="totalviews mr-1 text-sm">993</div> |
+              <iconify-icon icon="mage:message-round" class="mr-1 ml-2"></iconify-icon>
+              <div class="totalcomment mr-1 text-sm">16</div>
+            </div>
+          </div>
+        </div>
+        <div class="card relative">
+          <div class="imgpart1 relative text-white w-fit  opacity-35 ">
+            <img src="nourish-your-body-simple-and-delicious-plant-based-recipes.jpeg" alt="" class="w-80	rounded-2xl">
+          </div>
+          <div class="absolute symbol flex items-center flex-col">
+            <iconify-icon icon="material-symbols-light:read-more-rounded"
+              class="text-8xl text-black opacity-70"></iconify-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section3 mt-5">
+    <div class="title flex items-center text-xl text-left mb-8 font-bold underline underline-offset-1 ml-10">
+      <iconify-icon icon="lets-icons:pointers-fill"></iconify-icon>Upcoming Events
+    </div>
+    <div class="schcards flex flex-wrap justify-around m-4 ">
+      <div class="schcard p-2 border-black	rounded-2xl w-96 flex flex-col justify-between">
+        <div class="iconanddatetime flex ">
+          <iconify-icon icon="ph:calendar-fill" class="text-emerald-950 text-6xl mr-2"></iconify-icon>
+          <div class="schdt text-lg font-bold mr-2">
+            <div class="workshopby">Yoga & Meditation Retreat</div>
+            <div class="dateandtimesch">Date : June 12-14, 2024</div>
+          </div>
+        </div>
+        <hr class="border border-black mt-2 ml-1 mr-1">
+        <div class="detailsch mt-2 ml-2 mr-2">
+          <div class="desc_sch text-justify font-medium">Immerse yourself in a rejuvenating weekend retreat filled
+            with yoga, meditation, and relaxation.</div>
+        </div>
+        <div class="btns flex justify-between mt-2">
+          <div class="booknow bg-emerald-800 text-white size-fit p-2 rounded-xl hover:bg-emerald-900 cursor-pointer"><a
+              href="#">Schedule Now!</a></div>
+          <div class="booknow bg-teal-900 text-white size-fit p-2 rounded-xl hover:bg-teal-950 cursor-pointer"><a
+              href="#">Know More!</a></div>
+        </div>
+      </div>
+      <div class="schcard p-2 border-black rounded-2xl w-96 flex flex-col justify-between">
+        <div class="iconanddatetime flex ">
+          <iconify-icon icon="ph:calendar-fill" class="text-emerald-950 text-6xl mr-2"></iconify-icon>
+          <div class="schdt text-lg font-bold mr-2">
+            <div class="workshopby">Wellness Workshop: Stress Management Techniques</div>
+            <div class="dateandtimesch">Date : July 5, 2024</div>
+          </div>
+        </div>
+        <hr class="border border-black mt-2 ml-1 mr-1">
+        <div class="detailsch  mt-2 ml-2 mr-2">
+          <div class="desc_sch  text-justify font-medium">Join us for an interactive workshop focused on
+            practical stress management techniques. </div>
+        </div>
+        <div class="btns flex justify-between mt-2">
+          <div class="booknow bg-emerald-800 text-white size-fit p-2 rounded-xl hover:bg-emerald-900 cursor-pointer"><a
+              href="#">Schedule Now!</a></div>
+          <div class="booknow bg-teal-900 text-white size-fit p-2 rounded-xl hover:bg-teal-950 cursor-pointer"><a
+              href="#">Know More!</a></div>
+        </div>
+      </div>
+      <div class="schcard p-2 border-black	rounded-2xl w-96 flex flex-col justify-between">
+        <div class="iconanddatetime flex ">
+          <iconify-icon icon="ph:calendar-fill" class="text-emerald-950 text-6xl mr-2"></iconify-icon>
+          <div class="schdt text-lg font-bold mr-2">
+            <div class="workshopby">Mindful Eating Seminar</div>
+            <div class="dateandtimesch">Date : August 20, 2024</div>
+          </div>
+        </div>
+        <hr class="border border-black mt-2 ml-1 mr-1">
+        <div class="detailsch w-fit mt-2 ml-2 mr-2">
+          <div class="desc_sch text-justify font-medium">Explore the art of mindful eating in this insightful
+            seminar. </div>
+        </div>
+        <div class="btns flex justify-between mt-2">
+          <div class="booknow bg-emerald-800 text-white size-fit p-2 rounded-xl hover:bg-emerald-900 cursor-pointer"><a
+              href="#">Schedule Now!</a></div>
+          <div class="booknow bg-teal-900 text-white size-fit p-2 rounded-xl hover:bg-teal-950 cursor-pointer"><a
+              href="#">Know More!</a></div>
+        </div>
+      </div>
+      <div class="schcard p-2 border-black	rounded-2xl w-96 flex flex-col justify-between">
+        <div class="iconanddatetime flex ">
+          <iconify-icon icon="ph:calendar-fill" class="text-emerald-950 text-6xl mr-2"></iconify-icon>
+          <div class="schdt text-lg font-bold mr-2">
+            <div class="workshopby">Nature Walk and Forest Bathing Experience</div>
+            <div class="dateandtimesch">Date : September 8, 2024</div>
+          </div>
+        </div>
+        <hr class="border border-black mt-2 ml-1 mr-1">
+        <div class="detailsch mt-2 ml-2 mr-2">
+          <div class="desc_sch text-justify font-medium"> Embark on a guided nature walk, immersing yourself in the
+            healing power of nature. </div>
+        </div>
+        <div class="btns flex justify-between mt-2">
+          <div class="booknow bg-emerald-800 text-white size-fit p-2 rounded-xl hover:bg-emerald-900 cursor-pointer"><a
+              href="#">Schedule Now!</a></div>
+          <div class="booknow bg-teal-900 text-white size-fit p-2 rounded-xl hover:bg-teal-950 cursor-pointer"><a
+              href="#">Know More!</a></div>
+        </div>
+      </div>
+      <div class="schcard p-2 border-black	rounded-2xl w-96 flex flex-col justify-between">
+        <div class="iconanddatetime flex ">
+          <iconify-icon icon="ph:calendar-fill" class="text-emerald-950 text-6xl mr-2"></iconify-icon>
+          <div class="schdt text-lg font-bold mr-2">
+            <div class="workshopby">Holistic Nutrition Cooking Class</div>
+            <div class="dateandtimesch">Date : October 15, 2024</div>
+          </div>
+        </div>
+        <hr class="border border-black mt-2 ml-1 mr-1">
+        <div class="detailsch  mt-2 ml-2 mr-2">
+          <div class="desc_sch  text-justify font-medium">Join our hands-on cooking class led by a holistic nutritionist
+            and culinary expert. </div>
+        </div>
+        <div class="btns flex justify-between mt-2">
+          <div class="booknow bg-emerald-800 text-white size-fit p-2 rounded-xl hover:bg-emerald-900 cursor-pointer"><a
+              href="#">Schedule Now!</a></div>
+          <div class="booknow bg-teal-900 text-white size-fit p-2 rounded-xl hover:bg-teal-950 cursor-pointer"><a
+              href="#">Know More!</a></div>
+        </div>
+      </div>
+      <div class="schcard p-2 border-black	rounded-2xl w-96 h-fit flex-col justify-between">
+        <div class="iconanddatetime flex ">
+          <iconify-icon icon="el:calendar-sign" class="text-emerald-950 text-6xl mr-2"></iconify-icon>
+          <div class="schdt text-lg font-bold mr-2">
+            <div class="workshopby">Watch all the Schedules & Workshops & councillings with professionals </div>
+            <!-- <div class="dateandtimesch">Date : -</div> -->
+          </div>
+        </div>
+        <div
+          class="booknow bg-emerald-800 text-white size-fit w-full text-center p-2 mt-4 mb-2 rounded-xl hover:bg-emerald-900 cursor-pointer">
+          <a href="#" class=" flex items-center justify-center"><iconify-icon icon="typcn:arrow-up-outline"
+              class="rotate-90 text-2xl"></iconify-icon>Show More! <iconify-icon icon="typcn:arrow-up-outline"
+              class="rotate-90 text-2xl"></iconify-icon></a>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </section>
+
+  <section class="section4 mt-5 mb-5">
+    <div class="professionals">
+      <div class="title flex items-center text-xl text-left ml-10 mb-4 font-bold underline underline-offset-1">
+        <iconify-icon icon="lets-icons:pointers-fill"></iconify-icon>Featured Professionals
+      </div>
+      <div class="professionals flex justify-around flex-wrap items-center ml-10 mr-10 ">
+        <div
+          class="procard  size-96 p-4 bg-gray-100 text-center flex flex-col items-center justify-between rounded-3xl">
+          <div class="profession p-1 mb-2  bg-slate-900 text-white w-full rounded-3xl">
+            <div class="profes"> Holistic Nutritionist </div>
+          </div>
+          <div class="imgpartpro flex flex-col items-center">
+            <img src="rachel-mcdermott-0fN7Fxv1eWA-unsplash.jpg" alt="" class="size-36 object-cover rounded-full">
+            <div class="proname  text-center font-bold p-1">Dr. Maya Sharma </div>
+          </div>
+          <div class="prodeatils">
+            <div class="proabout  text-justify"> Dr. Sharma specializes in holistic nutrition, focusing on personalized
+              dietary plans to optimize health and wellness.</div>
+          </div>
+          <div class="btns flex justify-between w-full">
+            <div class="btn bg-indigo-700 text-white p-2 w-28 mt-2 rounded-2xl cursor-pointer hover:bg-indigo-800">
+              Follow</div>
+            <div class="btn bg-white text-black p-2 w-28 mt-2 rounded-2xl cursor-pointer hover:bg-gray-100">Message
+            </div>
+          </div>
+        </div>
+        <div
+          class="procard  size-96 p-4 bg-gray-100 text-center flex flex-col items-center justify-between rounded-3xl">
+          <div class="profession p-1 mb-2 bg-slate-900  text-white w-full rounded-3xl">
+            <div class="profes"> Naturopathic Doctor </div>
+          </div>
+          <div class="imgpartpro flex flex-col items-center">
+            <img src="sergio-de-paula-c_GmwfHBDzk-unsplash.jpg" alt="" class="size-36 object-cover rounded-full">
+            <div class="proname  text-center font-bold p-1">Dr. David Lee </div>
+          </div>
+          <div class="prodeatils">
+            <div class="proabout  text-justify"> Dr. Lee utilizing natural therapies
+              to address the root causes of health imbalances and promote healing.</div>
+          </div>
+          <div class="btns flex justify-between w-full">
+            <div class="btn bg-indigo-700 text-white p-2 w-28 mt-2 rounded-2xl cursor-pointer hover:bg-indigo-800">
+              Follow</div>
+            <div class="btn bg-white text-black p-2 w-28 mt-2 rounded-2xl cursor-pointer hover:bg-gray-100">Message
+            </div>
+          </div>
+        </div>
+        <div
+          class="procard  size-96 p-4 bg-gray-100 text-center flex flex-col items-center justify-between rounded-3xl">
+          <div class="profession p-1 mb-2 bg-slate-900  text-white w-full rounded-3xl">
+            <div class="profes"> Yoga Instructor </div>
+          </div>
+          <div class="imgpartpro flex flex-col items-center">
+            <img src="christopher-campbell-rDEOVtE7vOs-unsplash.jpg" alt="" class="size-36 object-cover rounded-full">
+            <div class="proname  text-center font-bold p-1">Emily Chen </div>
+          </div>
+          <div class="prodeatils">
+            <div class="proabout  text-justify"> Emily is a certified yoga instructor with expertise in various yoga
+              styles, including Hatha, Vinyasa, and Yin yoga.</div>
+          </div>
+          <div class="btns flex justify-between w-full">
+            <div class="btn bg-indigo-700 text-white p-2 w-28 mt-2 rounded-2xl cursor-pointer hover:bg-indigo-800">
+              Follow</div>
+            <div class="btn bg-white text-black p-2 w-28 mt-2 rounded-2xl cursor-pointer hover:bg-gray-100">Message
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section5" id="community">
+    <div
+      class="title flex min-[355px]:items-center items-top text-xl text-left mb-8 font-bold underline underline-offset-1 ml-10">
+      <iconify-icon icon="lets-icons:pointers-fill"></iconify-icon>Newsletter & Community Forums
+    </div>
+    <div class="forum w-full flex  justify-center">
+      <div
+        class="details_forum min-[1038px]:ml-16 min-[1038px]:mr-16 ml-10 mr-10 bg-gray-100 p-4 rounded-2xl min-[1038px]:w-full flex items-center justify-around">
+        <div class="img_forum mr-3 max-[1038px]:hidden">
+          <img src="the-power-of-gratitude-cultivating-joy-in-everyday-life.jpeg" alt=""
+            class="box-shadow w-64 rounded-full ">
+        </div>
+        <div class="detailpart">
+          <div class="title text-center text-2xl text-semibold underline underline-offset-2">Join Our Beautiful
+            Community!</div>
+          <div class="description text-justify mt-3">
+            <div class="benifits text-lg mb-3">SOME BENEFITS</div>
+            <div class="pointer mb-3 flex items-center max-[1038px]:items-top"><iconify-icon
+                icon="lucide:mouse-pointer-click" class="text-2xl mr-2" style="rotate: 128deg;"></iconify-icon>Stay
+              Informed: Receive regular updates on upcoming events, news, and relevant industry developments directly to
+              your inbox.</div>
+            <div class="pointer mb-3 flex items-center max-[1038px]:items-top"><iconify-icon
+                icon="lucide:mouse-pointer-click" class="text-2xl mr-2" style="rotate: 128deg;"></iconify-icon>Exclusive
+              Content: Gain access to exclusive articles, guides, and resources curated specifically for subscribers.
+            </div>
+            <div class="pointer mb-3 flex items-center max-[1038px]:items-top"><iconify-icon
+                icon="lucide:mouse-pointer-click" class="text-2xl mr-2" style="rotate: 128deg;"></iconify-icon>Special
+              Offers: Receive exclusive discounts, promotions, and offers on products or services related to your
+              interests.</div>
+            <div class="pointer mb-3 flex items-center max-[1038px]:items-top"><iconify-icon
+                icon="lucide:mouse-pointer-click" class="text-2xl mr-2"
+                style="rotate: 128deg;"></iconify-icon>Convenience: Get all the latest updates and information delivered
+              conveniently to your email, saving you time and effort.</div>
+            <div class="pointer mb-3 flex items-center max-[1038px]:items-top"><iconify-icon
+                icon="lucide:mouse-pointer-click" class="text-2xl mr-2" style="rotate: 128deg;"></iconify-icon>Be Part
+              of a Community: Feel connected to a larger community of subscribers who share your interests and passions.
+            </div>
+          </div>
+          <div class="btns_forum flex justify-between max-[420px]:flex-col text-center">
+            <div
+              class="join-btn p-2 pl-3 pr-3 bg-sky-700 text-white rounded-xl mt-4 mb-1 cursor-pointer hover:bg-sky-800">
+              Join Now!</div>
+            <div
+              class="join-btn p-2 pl-3 pr-3 bg-red-700 text-white rounded-xl mt-4 mb-1 cursor-pointer hover:bg-red-800">
+              Subscribe Our Newsletter!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="mt-10 bg-slate-900 text-gray-400 text-sm p-2 pl-10 pr-10 flex-wrap flex justify-between items-center">
+    <p class="max-[570px]:text-center max-[570px]:w-full">&copy; 2024 ZenLife Wellness Hub. All rights reserved.</p>
+    <div class="socials flex items-center justify-around max-[570px]:w-full">
+      <div class="icon  cursor-pointer"><a href="https://www.fiverr.com/rohit_webdev1" target="_blank"><iconify-icon icon="jam:fiverr-circle"
+            class=" hover:text-gray-100" style="font-size:34px; margin-top: 2px;"></iconify-icon></a></div>
+      <div class="icon  cursor-pointer text-2xl"><a href="https://www.linkedin.com/in/rohit-kumhar-1654332b4" target="_blank"><iconify-icon
+            icon="bi:linkedin" class=" hover:text-gray-100 mt-1"></iconify-icon></a></div>
+      <div class="icon cursor-pointer text-3xl"><a href="https://twitter.com/Codesniper123" target="_blank"><iconify-icon
+            icon="ri:twitter-line" class=" hover:text-gray-100 mt-1"></iconify-icon></a></div>
+      <div class="icon cursor-pointer text-2xl"><a href="https://github.com/codesniper12" target="_blank"><iconify-icon
+            icon="bytesize:github" class=" hover:text-gray-100 "></iconify-icon></a></div>
+      <div class="icon cursor-pointer text-3xl"><a href="https://www.youtube.com/@mr.messbeats3076" target="_blank"><iconify-icon
+            icon="flowbite:youtube-solid" class=" hover:text-gray-100 "></iconify-icon></a></div>
+    </div>
+  </footer>
+
+  <script>
+    window.onload = () => {
+      setTimeout(() => {
+        document.querySelector('.popup-body').classList.remove("hidden");
+      }, 5000); // Adjust the delay time (in milliseconds) as needed
+    };
+    function popclose() {
+      document.querySelector(".popup-body").classList.add("hidden");
+    }
+
+    function showpositioning() {
+      document.querySelector('.positioning').classList.toggle("hidden");
+      document.querySelector('.imgprofile').classList.toggle("proimg");
+    }
+
+    document.addEventListener('click', function (event) {
+      const positioningDiv = document.querySelector('.positioning');
+      const imgProfile = document.querySelector('.imgprofile')
+
+      if (!positioningDiv.contains(event.target) && !imgProfile.contains(event.target)) {
+        positioningDiv.classList.add('hidden');
+        imgProfile.classList.remove('proimg');
+      }
+    });
+
+    function showelements(){
+      document.querySelector('.hamelelement').classList.toggle("hidden");
+      document.querySelector('.hamburger').classList.toggle("rotatingham");
+    }
+
+  </script>
+
+</body>
+
+</html>
